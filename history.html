@@ -32,7 +32,7 @@
     <script>
        
         const historyList = document.getElementById('history-list');
-        let donationHistory = JSON.parse(localStorage.getItem('donationHistory')) || []; // Get donations from localStorage
+        let donationHistory = JSON.parse(localStorage.getItem('donationHistory')) || [];
 
         donationHistory.forEach((item) => {
             const historyItem = document.createElement('div');
