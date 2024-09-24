@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation History</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header>
+        
+        <nav>
+            <div class="navbar bg-base-100">
+                <div class="navbar-start w-full">
+                    <section class="flex justify-center items-center gap-4 py-8 w-full">
+                        <a class="btn btn-ghost text-xl bg-lime-500" href="index.html">DONATION</a>
+                        <a class="btn btn-ghost text-xl bg-lime-500" href="history.html">HISTORY</a>
+                    </section>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="container mx-auto py-8">
+            <h1 class="text-2xl font-bold text-center mb-6">Donation History</h1>
+            <div id="history-list" class="flex flex-col gap-4">
+               
+            </div>
+        </section>
+    </main>
+    <script>
+       
+        const historyList = document.getElementById('history-list');
+        let donationHistory = JSON.parse(localStorage.getItem('donationHistory')) || []; // Get donations from localStorage
+
+        donationHistory.forEach((item) => {
+            const historyItem = document.createElement('div');
+            historyItem.className = "bg-white p-3 rounded-md border";
+            historyItem.innerHTML = `
+                <p class="text-lg font-bold text-gray-800">${item.amount} Taka is ${item.description}</p>
+                <p class="text-xs text-gray-500">Date: ${new Date(item.date).toString()}</p>
+            `;
+            historyList.appendChild(historyItem);
+        });
+    </script>
+</body>
+</html>

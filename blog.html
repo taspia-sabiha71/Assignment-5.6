@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .body {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .faq-section {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px 0;
+        }
+        .faq-answer {
+            display: none;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        .faq-answer.show {
+            display: block;
+        }
+    </style>
+</head>
+<body class="body">
+    <header>
+        <nav>
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                    <!-- Ensure this button links back to index.html -->
+                    <a href="index.html" class="btn btn-ghost text-xl bg-lime-500">HOME</a>
+                </div>
+                <div class="navbar-center">
+                    <a class="btn btn-ghost text-xl"> <img src="./assets/logo.png" alt="">Donate Bangladesh</a>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-center">
+                        <div class="balance">
+                            <a id="navbar-balance" class="btn btn-ghost text-xl bg-white">
+                                <img src="./assets/coin.png" alt="">5500 BDT
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="faq-section">
+            <h1>Important FAQ</h1>
+
+            <div class="faq-item">
+                <h2 class="faq-question">What is the Document Object Model (DOM)?</h2>
+                <p class="faq-answer">The Document Object Model (DOM) is a programming interface that represents a web document as a tree structure, allowing programs to access and manipulate the document's structure, style, and content.</p>
+            </div>
+
+            <div class="faq-item">
+                <h2 class="faq-question">How do you select an element from the DOM?</h2>
+                <p class="faq-answer">To select elements from the DOM, you can use these JavaScript methods:<br>
+                1. getElementById(): Selects an element by its ID.<br>
+                2. getElementsByClassName(): Selects elements by their class.<br>
+                3. getElementsByTagName(): Selects elements by their tag name.<br>
+                4. querySelector(): Selects the first element matching a CSS selector.<br>
+                5. querySelectorAll(): Selects all elements matching a CSS selector.</p>
+            </div>
+
+            <div class="faq-item">
+                <h2 class="faq-question">What is delegation in the context of the DOM, and why is it useful?</h2>
+                <p class="faq-answer">Delegation in the DOM is a technique where an event listener is attached to a parent element to handle events from its child elements.<br><br>
+                Why it's useful:<br>
+                1. Better Performance: Fewer event listeners improve efficiency.<br>
+                2. Simpler Code: Manage events for multiple elements with one handler.<br>
+                3. Handles Dynamic Content: Automatically works for newly added elements.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('show');
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
