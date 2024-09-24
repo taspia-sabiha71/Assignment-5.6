@@ -15,7 +15,7 @@
   .balance{
     display: flex;
   }
-  /* Popup Modal Styles */
+
   .modal {
             display: none;
             position: fixed;
@@ -48,6 +48,11 @@
             cursor: pointer;
             border-radius: 5px;
         }
+
+        .logo{
+          display: flex;
+          align-items: center;
+        }
 </style>
 </head>
  <body id="donation tab" class="body">
@@ -58,7 +63,7 @@
                     <a class="btn btn-ghost text-xl bg-lime-500" href="./blog.html">BLOG</a>
                 </div>
                 <div class="navbar-center">
-                  <a class=" text-xl" href="./blog.html"> <img src="./assets/logo.png" alt="">Donate Bangladesh</a>
+                  <a class="text-xl logo"> <img src="./assets/logo.png" alt="">Donate Bangladesh</a>
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-center">
@@ -118,7 +123,6 @@
     </div>
   </div>
    
-<!-- Popup Modal -->
 <div id="donation-popup" class="modal">
   <div class="modal-content">
       <h2>Congratulations!</h2>
@@ -130,4 +134,4 @@
     </main>
     <script src="js/index.js"></script>
 </body>
-</html>                                          
+</html>
