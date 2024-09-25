@@ -8,25 +8,76 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .body {
-            width: 1200px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
         }
+
         .faq-section {
             margin-top: 20px;
             font-size: 1.2em;
         }
+
         .faq-question {
             font-weight: bold;
             cursor: pointer;
             padding: 10px 0;
         }
+
         .faq-answer {
             display: none;
             padding-left: 20px;
             margin-bottom: 15px;
         }
+
         .faq-answer.show {
             display: block;
+        }
+
+        @media (max-width: 768px) {
+            .body {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .faq-section {
+                font-size: 1em;
+            }
+
+           
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar-center img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .navbar-center {
+                justify-center;
+                text-center;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .navbar-start, .navbar-end {
+                flex: 1;
+                justify-content: center;
+                padding: 10px;
+            }
+
+            .balance img {
+                width: 20px;
+                height: 20px;
+            }
+
+            .navbar-center a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -35,17 +86,18 @@
         <nav>
             <div class="navbar bg-base-100">
                 <div class="navbar-start">
-                    <!-- Ensure this button links back to index.html -->
                     <a href="index.html" class="btn btn-ghost text-xl bg-lime-500">HOME</a>
                 </div>
                 <div class="navbar-center">
-                    <a class="btn btn-ghost text-xl"> <img src="./assets/logo.png" alt="">Donate Bangladesh</a>
+                    <a class="btn btn-ghost text-xl flex items-center">
+                        <img src="./assets/logo.png" alt="Logo" class="w-10 h-10 mr-2">Donate Bangladesh
+                    </a>
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-center">
                         <div class="balance">
-                            <a id="navbar-balance" class="btn btn-ghost text-xl bg-white">
-                                <img src="./assets/coin.png" alt="">5500 BDT
+                            <a id="navbar-balance" class="btn btn-ghost text-xl bg-white flex items-center">
+                                <img src="./assets/coin.png" alt="Coin" class="w-6 h-6 mr-2">5500 BDT
                             </a>
                         </div>
                     </div>
@@ -56,7 +108,7 @@
 
     <main>
         <section class="faq-section">
-            <h1>Important FAQ</h1>
+            <h1 class="text-xl sm:text-2xl font-bold text-center mb-6">Important FAQ</h1>
 
             <div class="faq-item">
                 <h2 class="faq-question">What is the Document Object Model (DOM)?</h2>
@@ -97,8 +149,3 @@
 
 </body>
 </html>
-
-
-
-
-

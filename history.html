@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -6,22 +6,82 @@
     <title>Donation History</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px; 
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .body {
+                width: 100%;
+                padding: 0 20px;
+                box-sizing: border-box;
+            }
+
+            .logo img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .navbar-start,
+            .navbar-end {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .navbar-center {
+                justify-content: center;
+            }
+
+            .flex-col {
+                align-items: center;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .body {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="body">
     <header>
-        
-        <nav>
-            <div class="navbar bg-base-100">
-                <div class="navbar-start w-full">
-                    <section class="flex justify-center items-center gap-4 py-8 w-full">
-                        <a class="btn btn-ghost text-xl bg-lime-500" href="index.html">DONATION</a>
-                        <a class="btn btn-ghost text-xl bg-lime-500" href="history.html">HISTORY</a>
-                    </section>
+        <nav class="navbar bg-base-100">
+            <div class="navbar-start">
+                <a class="btn btn-ghost text-xl bg-lime-500" href="./blog.html">BLOG</a>
+            </div>
+            <div class="navbar-center">
+                <a class="text-xl logo"> 
+                    <img src="./assets/logo.png" alt="Logo">Donate Bangladesh
+                </a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-center">
+                    <div class="balance">
+                        <a id="navbar-balance" class="btn btn-ghost text-xl bg-white">
+                            <img src="./assets/coin.png" alt="Coin"> 5500 BDT
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
     <main>
+        <section class="flex justify-center items-center gap-4 py-8 w-full">
+            <a class="btn btn-ghost text-xl bg-lime-500" href="index.html">DONATION</a>
+            <a class="btn btn-ghost text-xl bg-lime-500" href="history.html">HISTORY</a>
+        </section>
         <section class="container mx-auto py-8">
             <h1 class="text-2xl font-bold text-center mb-6">Donation History</h1>
             <div id="history-list" class="flex flex-col gap-4">
@@ -30,9 +90,8 @@
         </section>
     </main>
     <script>
-       
         const historyList = document.getElementById('history-list');
-        let donationHistory = JSON.parse(localStorage.getItem('donationHistory')) || []; // Get donations from localStorage
+        let donationHistory = JSON.parse(localStorage.getItem('donationHistory')) || [];
 
         donationHistory.forEach((item) => {
             const historyItem = document.createElement('div');
